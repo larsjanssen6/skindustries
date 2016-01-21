@@ -12,7 +12,15 @@ class School extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('school', function (Blueprint $table)
+        {
+            $table->integer('id');
+            $table->string('name');
+            $table->string('address');
+            $table->string('zip');
+            $table->string('phonenumber');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -22,6 +30,6 @@ class School extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('school');
     }
 }

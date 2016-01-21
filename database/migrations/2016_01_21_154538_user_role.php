@@ -17,10 +17,10 @@ class UserRole extends Migration
             $table->integer('id');
 
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('user')->on('id')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
 
             $table->integer('role_id')->unsigned();
-            $table->foreign('role_id')->references('role')->on('id')->onDelete('cascade');
+            $table->foreign('role_id')->references('id')->on('role')->onDelete('cascade');
         });
     }
 

@@ -17,17 +17,14 @@ class trainee extends Migration
             $table->increments('id');
             $table->string('description');
 
-            $table->integer('trainee_id')->unsigned();
-            $table->foreign('trainee_id')->references('trainee')->on('id')->onDelete('cascade');
-
             $table->string('class');
             $table->string('schoolmentor');
 
             $table->integer('supervisor_id')->unsigned();
-            $table->foreign('supervisor_id')->references('user')->on('id')->onDelete('cascade');
+            $table->foreign('supervisor_id')->references('id')->on('user')->onDelete('cascade');
 
             $table->integer('education_id')->unsigned();
-            $table->foreign('education_id')->references('education')->on('id')->onDelete('cascade');
+            $table->foreign('education_id')->references('id')->on('education')->onDelete('cascade');
 
             $table->timestamp('startdate');
             $table->timestamp('enddate');
