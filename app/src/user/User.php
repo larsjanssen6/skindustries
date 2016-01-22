@@ -1,20 +1,26 @@
 <?php
 
-namespace App\src\user;
+namespace src\user;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use src/user;
 
 class User extends Authenticatable
 {
+
+    /**
+     * table name
+     */
+    protected $table = 'role';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-
-    
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','lastname','address','zip','profileimagepath','trainee_id','department_id',
+        'company_id','lastlogin'
     ];
 
     /**
@@ -25,4 +31,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * user hasMany roles
+     */
+    public function role()
+    {
+        return $this->hasMany('src/user/role');
+    }
 }
