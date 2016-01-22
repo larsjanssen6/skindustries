@@ -3,7 +3,6 @@
 namespace src\user;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use src/user;
 
 class User extends Authenticatable
 {
@@ -11,7 +10,7 @@ class User extends Authenticatable
     /**
      * table name
      */
-    protected $table = 'role';
+    protected $table = 'user';
 
     /**
      * The attributes that are mass assignable.
