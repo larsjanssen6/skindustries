@@ -22,13 +22,13 @@ class User extends Migration
             $table->string('zip');
             $table->string('profileimagepath');
 
-            $table->integer('trainee_id')->default(0)->unsigned();
+            $table->integer('department_id')->nullable()->unsigned();
+            $table->foreign('department_id')->references('id')->on('department')->onDelete('cascade');;
+
+            $table->integer('trainee_id')->nullable()->unsigned();
             //$table->foreign('trainee_id')->references('trainee')->on('id')->onDelete('cascade');
 
-            $table->integer('department_id')->default(0)->unsigned();
-            $table->foreign('department_id')->references('id')->on('department')->onDelete('cascade');
-
-            $table->integer('company_id')->default(0)->unsigned();
+            $table->integer('company_id')->nullable()->unsigned();
             $table->foreign('company_id')->references('id')->on('company')->onDelete('cascade');
 
 
